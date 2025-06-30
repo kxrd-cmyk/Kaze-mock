@@ -1,11 +1,4 @@
+// Configuration for Cloudflare Pages
 {
-  "name": "kaze-mock",
-  "compatibility_date": "2023-05-18",
-  "pages_build_output_dir": ".",
-  "build": {
-    "command": "",
-    "upload": {
-      "format": "service-worker"
-    }
-  }
+  "name": "kaze-mock"
 }
