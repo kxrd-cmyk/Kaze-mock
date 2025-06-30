@@ -1,0 +1,6 @@
+{
+  "name": "kaze-mock",
+  "main": "src/index.js",
+  "compatibility_date": "2023-05-18",
+  "pages_build_output_dir": "."
+}
