@@ -1,42 +1,15 @@
 {
   "name": "kazedrop",
-  "main": "worker.js",
+  "main": "_worker.js",
   "compatibility_date": "2024-03-01",
   "account_id": "",
   "workers_dev": true,
-  "routes": [],
+  "pages_build_output_dir": "dist",
   "site": {
     "bucket": ".",
-    "entry-point": ".",
-    "exclude": [
-      "node_modules",
-      "wrangler.jsonc",
-      "*.ps1",
-      ".git",
-      "*.md",
-      "*.log"
-    ]
+    "entry-point": "public"
   },
-  "kv_namespaces": [
-    {
-      "binding": "ASSETS",
-      "id": "",
-      "preview_id": ""
-    }
-  ],
   "vars": {
     "ENVIRONMENT": "production"
-  },
-  "env": {
-    "development": {
-      "vars": {
-        "ENVIRONMENT": "development"
-      }
-    },
-    "production": {
-      "vars": {
-        "ENVIRONMENT": "production"
-      }
-    }
   }
 }
