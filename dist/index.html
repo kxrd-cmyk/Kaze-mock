@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title>Kaze | Embrace the Chaos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/hellshunx" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .disclaimer-text {
+            color: white;
+            font-size: 1em;
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 4px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4d4d;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            display: none;
+        }
+
+        .nav-icon {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><span class="first-letter">K</span>aze</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Parallax -->
+    <header class="hero">
+        <div class="parallax-bg" data-speed="0.4"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Kaze</h1>
+                <p class="hero-subtitle">Embrace The Chaos</p>
+                <a href="#featured-product" class="cta-button">Shop Now</a>
+            </div>
+    </header>
+
+    <!-- Single Product Section -->
+    <section id="featured-product" class="product-section">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img src="C:\Users\ASUS\Downloads\WhatsApp Image 2025-06-23 at 12.24.41 (1).jpeg" alt="Kaze Chaos T-shirt" class="product-img">
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail active">
+                            <img src="C:\Users\ASUS\Downloads\WhatsApp Image 2025-06-23 at 12.24.41.jpeg" alt="Chaos T-shirt Front">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="C:\Users\ASUS\Downloads\WhatsApp Image 2025-06-23 at 12.24.41 (1).jpeg" alt="Chaos T-shirt Back">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="C:\Users\ASUS\Downloads\WhatsApp Image 2025-06-23 at 12.24.42.jpeg" alt="Chaos T-shirt Detail">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="C:\Users\ASUS\Downloads\WhatsApp Image 2025-06-27 at 13.33.05.jpeg" alt="Chaos T-shirt Side View">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="C:\Users\ASUS\Downloads\WhatsApp Image 2025-06-27 at 13.32.54.jpeg" alt="Chaos T-shirt Wrinkle Detail">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="C:\Users\ASUS\Downloads\BW logo-2.png" alt="Chaos T-shirt Full View">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <span class="product-category">T-shirt</span>
+                    <h2 class="product-title">Chaos T-shirt</h2>
+                    <div class="product-price">₹899 <span class="disclaimer-text">(Without taxes and shipping)</span></div>
+
+                    <a href="https://forms.gle/gtoK3WDJYWjBSmgh8" target="_blank" class="btn btn-add-to-cart">Proceed</a>
+                    <div class="added-to-cart-message">Added to Cart!</div>
+                    <div class="product-description">
+                        <h3>PRODUCT DETAILS</h3>
+                        <p>Our Chaos T-shirt is crafted from premium cotton blend fabric for ultimate comfort and durability.</p>
+                        <ul>
+                            <li>80% Cotton, 20% Polyester</li>
+                            <li>Reinforced stitching</li>
+                        </ul>
+                        <p style="color: #ffffff !important;"><b>DISCLAIMER: The T-shirt will take a week to arrive, have patience.</b></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>ABOUT KAZE</h3>
+                    <p>Kaze is a premium fashion brand that challenges conventional design boundaries with innovative streetwear.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/k4zeclo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KAZE. All rights reserved.</p>
+
+        </div>
+    </footer>
+
+    <div class="custom-cursor"></div>
+    <script src="js/main.js"></script>
+    <script>
+        // Cart functionality
+        function addToCart(product) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += product.quantity || 1;
+            } else {
+                cart.push({...product, quantity: product.quantity || 1});
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            showNotification('Item added to cart!');
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+            document.querySelectorAll('.cart-count').forEach(el => {
+                el.textContent = cartCount;
+                el.style.display = cartCount > 0 ? 'inline-flex' : 'none';
+            });
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        // Update cart count on page load
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+    </script>
+</body>
+</html>
