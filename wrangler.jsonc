@@ -1,4 +1,20 @@
-// Configuration for Cloudflare Pages
 {
-  "name": "kaze-mock"
+  "name": "kaze-mock",
+  "main": "src/index.js",
+  "compatibility_date": "2024-03-01",
+  "account_id": "",
+  "workers_dev": true,
+  "routes": [],
+  "env": {
+    "development": {
+      "vars": {
+        "ENVIRONMENT": "development"
+      }
+    },
+    "production": {
+      "vars": {
+        "ENVIRONMENT": "production"
+      }
+    }
+  }
 }
