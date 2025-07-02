@@ -7,7 +7,25 @@
   "routes": [],
   "site": {
     "bucket": ".",
-    "exclude": ["node_modules", "wrangler.jsonc", "*.ps1", ".git"]
+    "entry-point": ".",
+    "exclude": [
+      "node_modules",
+      "wrangler.jsonc",
+      "*.ps1",
+      ".git",
+      "*.md",
+      "*.log"
+    ]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "ASSETS",
+      "id": "",
+      "preview_id": ""
+    }
+  ],
+  "vars": {
+    "ENVIRONMENT": "production"
   },
   "env": {
     "development": {

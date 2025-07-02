@@ -1,57 +1,52 @@
-// Handle incoming requests
-export default {
-  async fetch(request, env) {
-    // Get the request URL
+// Simple static file server for Cloudflare Workers
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
+  try {
+    // Parse the URL
     const url = new URL(request.url);
     
-    // Handle API routes
-    if (url.pathname.startsWith('/api/')) {
-      return handleApiRequest(request, env);
+    // Default to index.html for root path
+    let path = url.pathname === '/' ? '/index.html' : url.pathname;
+    
+    // Remove leading slash for file path
+    let filePath = path.startsWith('/') ? path.substring(1) : path;
+    
+    // If the path doesn't have an extension, assume it's a SPA route and serve index.html
+    if (!filePath.includes('.')) {
+      filePath = 'index.html';
     }
     
-    // For all other requests, serve the static files
-    return handleStaticRequest(request, env);
-  },
-};
-
-// Handle API requests
-async function handleApiRequest(request, env) {
-  const url = new URL(request.url);
-  
-  // Example API endpoint
-  if (url.pathname === '/api/hello') {
-    return new Response(
-      JSON.stringify({ message: 'Hello from Kaze Mock API!' }),
-      { 
-        headers: { 'Content-Type': 'application/json' } 
-      }
-    );
-  }
-  
-  // Add more API endpoints as needed
-  
-  // Return 404 for unknown API routes
-  return new Response('Not Found', { status: 404 });
-}
-
-// Serve static files
-async function handleStaticRequest(request, env) {
-  // In development, we'll serve files directly from the file system
-  // In production, this would be replaced with your actual static file serving logic
-  const url = new URL(request.url);
-  let path = url.pathname === '/' ? '/index.html' : url.pathname;
-  
-  // Try to fetch the file from the file system
-  try {
-    const file = await env.ASSETS.fetch(new URL(path, request.url));
-    return new Response(file.body, {
+    // Get the file content from the KV namespace
+    let file = await ASSETS.get(filePath);
+    
+    // If file not found, try with .html extension for SPA routes
+    if (!file && !filePath.endsWith('.html')) {
+      filePath = filePath + '.html';
+      file = await ASSETS.get(filePath);
+    }
+    
+    // If still not found, serve 404
+    if (!file) {
+      return new Response('File not found', { status: 404 });
+    }
+    
+    // Determine content type
+    const contentType = getContentType(filePath);
+    
+    // Return the file with appropriate headers
+    return new Response(file, {
       headers: {
-        'Content-Type': getContentType(path)
+        'content-type': contentType,
+        'cache-control': 'public, max-age=14400' // 4 hours cache
       }
     });
-  } catch (e) {
-    // If file not found, return 404
-    return new Response('Not Found', { status: 404 });
+    
+  } catch (error) {
+    // Return error response
+    return new Response(`Error: ${error.message}`, { status: 500 });
   }
 }
 
@@ -59,20 +54,31 @@ async function handleStaticRequest(request, env) {
 function getContentType(path) {
   const extension = path.split('.').pop().toLowerCase();
   const types = {
-    'html': 'text/html',
-    'css': 'text/css',
-    'js': 'application/javascript',
-    'json': 'application/json',
+    'html': 'text/html;charset=UTF-8',
+    'css': 'text/css;charset=UTF-8',
+    'js': 'application/javascript;charset=UTF-8',
+    'json': 'application/json;charset=UTF-8',
     'png': 'image/png',
     'jpg': 'image/jpeg',
     'jpeg': 'image/jpeg',
     'gif': 'image/gif',
     'svg': 'image/svg+xml',
     'ico': 'image/x-icon',
+    'webp': 'image/webp',
+    'webm': 'video/webm',
+    'mp4': 'video/mp4',
     'woff': 'font/woff',
     'woff2': 'font/woff2',
     'ttf': 'font/ttf',
-    'eot': 'application/vnd.ms-fontobject'
+    'eot': 'application/vnd.ms-fontobject',
+    'txt': 'text/plain;charset=UTF-8',
+    'pdf': 'application/pdf',
+    'zip': 'application/zip',
+    'mp3': 'audio/mpeg',
+    'wav': 'audio/wav',
+    'mpeg': 'video/mpeg',
+    'webmanifest': 'application/manifest+json',
+    'wasm': 'application/wasm'
   };
   
   return types[extension] || 'application/octet-stream';
