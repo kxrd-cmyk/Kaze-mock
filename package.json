@@ -1,11 +1,12 @@
 {
-  "name": "kazedrop",
+  "name": "kaze-mock",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
-    "preview": "wrangler preview"
+    "deploy": "cd dist && wrangler deploy",
+    "preview": "wrangler preview",
+    "build": "node update_dist.js"
   },
   "devDependencies": {
     "wrangler": "^4.22.0"
