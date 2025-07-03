@@ -1,6 +1,6 @@
 // Configuration for Cloudflare Pages
 {
-  "name": "kaze-mock",
+  "name": "kazedrop",
   "main": "_worker.js",
   "compatibility_date": "2024-03-01",
   "workers_dev": true,
