@@ -8,7 +8,6 @@
     "/_redirects",
     "/_worker.js",
     "/index.html",
-    "/assets/*",
     "/*.css",
     "/*.js",
     "/*.svg",

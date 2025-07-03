@@ -1,16 +1,12 @@
-// Simple SPA routing for Cloudflare Pages
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
-});
-
-async function handleRequest(request) {
-  const url = new URL(request.url);
+// Cloudflare Pages Function - handles all requests
+export async function onRequest(context) {
+  const url = new URL(context.request.url);
   
-  // Serve static assets directly
+  // Serve static files directly
   if (url.pathname.includes('.')) {
-    return fetch(request);
+    return context.next();
   }
   
   // For all other routes, serve index.html
-  return fetch(new URL('/index.html', request.url));
+  return context.env.ASSETS.fetch("/index.html");
 }
