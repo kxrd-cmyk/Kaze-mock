@@ -1,9 +1,8 @@
+// Configuration for Cloudflare Pages
 {
   "name": "kaze-mock",
-  "main": "dist/worker.js",
+  "main": "_worker.js",
   "compatibility_date": "2024-03-01",
   "workers_dev": true,
-  "site": {
-    "bucket": "dist"
-  }
+  "pages_build_output_dir": "."
 }
