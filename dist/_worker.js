@@ -1,12 +1,10 @@
 // Cloudflare Pages Function - handles all requests
-export async function onRequest(context) {
-  const url = new URL(context.request.url);
-  
-  // Serve static files directly
-  if (url.pathname.includes('.')) {
-    return context.next();
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    if (url.pathname.includes('.')) {
+      return fetch(request);
+    }
+    return fetch(new URL('/index.html', request.url));
   }
-  
-  // For all other routes, serve index.html
-  return context.env.ASSETS.fetch("/index.html");
-}
+};
