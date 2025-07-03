@@ -11,8 +11,9 @@ async function handleRequest(request) {
     // Default to index.html for root path
     let path = url.pathname === '/' ? '/index.html' : url.pathname;
     
-    // Remove leading slash for file path
-    let filePath = path.startsWith('/') ? path.substring(1) : path;
+    // Remove leading slash for file path and prepend 'dist/'
+    let filePath = (path.startsWith('/') ? path.substring(1) : path);
+    filePath = `dist/${filePath}`;
     
     // If the path doesn't have an extension, assume it's a SPA route and serve index.html
     if (!filePath.includes('.')) {

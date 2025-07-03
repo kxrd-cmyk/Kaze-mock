@@ -1,20 +1,9 @@
 {
-  "name": "kazedrop",
-  "main": "src/index.js",
+  "name": "kaze-mock",
+  "main": "worker.js",
   "compatibility_date": "2024-03-01",
-  "account_id": "",
   "workers_dev": true,
-  "routes": [],
-  "env": {
-    "development": {
-      "vars": {
-        "ENVIRONMENT": "development"
-      }
-    },
-    "production": {
-      "vars": {
-        "ENVIRONMENT": "production"
-      }
-    }
+  "site": {
+    "bucket": "dist"
   }
 }
