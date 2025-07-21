@@ -1,17 +1,22 @@
 {
   "version": 1,
-  "include": ["/*"],
+  "include": [
+    "/*"
+  ],
   "exclude": [
-    "/_next/static/*",
-    "/static/*",
+    "/_headers",
+    "/_redirects",
+    "/_worker.js",
+    "/index.html",
+    "/assets/*",
     "/*.css",
     "/*.js",
-    "/*.json",
+    "/*.svg",
     "/*.png",
     "/*.jpg",
     "/*.jpeg",
     "/*.gif",
-    "/*.svg",
-    "/*.ico"
+    "/*.ico",
+    "/*.json"
   ]
 }
